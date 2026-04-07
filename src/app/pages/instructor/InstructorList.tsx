@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/layout/Layout';
+import Pagination from '../../components/common/Pagination';
 import { Search } from 'lucide-react';
 import { instructors } from '../../../data/dummy';
 import { useHelpMode } from '../../../utils/helpMode';
@@ -7,6 +9,7 @@ import { useHelpMode } from '../../../utils/helpMode';
 export default function InstructorList() {
   const navigate = useNavigate();
   const { helpMode, showHelp } = useHelpMode();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleClick = (e: React.MouseEvent, helpText: string) => {
     if (helpMode) {
@@ -23,9 +26,12 @@ export default function InstructorList() {
         data-help="역대 강사진 목록을 조회하고 관리하는 화면입니다. 검색, 정렬, 등록 기능을 제공합니다."
       >
         <div className="card-header">
-          <h2 className="card-title">역대 강사진 목록</h2>
+          <div>
+            <h2 className="card-title">역대 강사진 목록</h2>
+            <p className="card-description">총 {instructors.length}명의 강사진이 등록되어 있습니다</p>
+          </div>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary btn-sm"
             onClick={() => navigate('/instructor-detail')}
           >
             + 강사진 등록
@@ -34,7 +40,7 @@ export default function InstructorList() {
 
         <div className="list-controls">
           <div className="search-box">
-            <Search size={16} />
+            <Search size={16} color="var(--text-muted)" />
             <input
               type="text"
               placeholder="강사 이름으로 검색..."
@@ -67,17 +73,11 @@ export default function InstructorList() {
           ))}
         </div>
 
-        <div className="pagination">
-          <button className="pagination-btn" disabled>
-            이전
-          </button>
-          <div className="pagination-numbers">
-            <button className="pagination-number active">1</button>
-            <button className="pagination-number">2</button>
-            <button className="pagination-number">3</button>
-          </div>
-          <button className="pagination-btn">다음</button>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={3}
+          onPageChange={setCurrentPage}
+        />
       </div>
     </Layout>
   );

@@ -25,8 +25,10 @@ export default function AdminDetail() {
         data-help="관리자 계정의 기본 정보를 입력하는 섹션입니다. 아이디, 비밀번호, 이름, 이메일, 권한그룹, 상태를 설정할 수 있습니다."
       >
         <div className="card-header">
-          <h2 className="card-title">관리자 정보</h2>
-          <p className="card-description">관리자 계정의 기본 정보를 입력하세요</p>
+          <div>
+            <h2 className="card-title">관리자 정보</h2>
+            <p className="card-description">관리자 계정의 기본 정보를 입력하세요</p>
+          </div>
         </div>
 
         <div className="form-row">
