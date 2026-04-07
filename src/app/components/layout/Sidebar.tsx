@@ -80,7 +80,7 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <div className="sidebar-logo">김창준한미연구원 관리자</div>
+        <Link to="/" className="sidebar-logo">김창준한미연구원 관리자</Link>
       </div>
       <nav className="sidebar-nav">
         {navGroups.map(group => {
