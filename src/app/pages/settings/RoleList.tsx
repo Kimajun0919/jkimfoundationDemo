@@ -34,10 +34,10 @@ export default function RoleList() {
 
   const getPermissionBadgeClass = (permission: string) => {
     switch (permission) {
-      case 'all': return 'badge-success';
-      case 'write': return 'badge-warning';
-      case 'read': return 'badge-info';
-      default: return 'badge-secondary';
+      case 'all': return 'badge-active';
+      case 'write': return 'badge-category';
+      case 'read': return 'badge-inactive';
+      default: return 'badge-inactive';
     }
   };
 
