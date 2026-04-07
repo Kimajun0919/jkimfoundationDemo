@@ -39,12 +39,12 @@ export default function InstructorDetail() {
 
         <div className="form-group">
           <label className="form-label">
-            제목 (이름 및 소속) <span className="required">*</span>
+            제목 <span className="required">*</span>
           </label>
           <input
             type="text"
             className="form-input"
-            placeholder="예: 박준영 교수 (하버드 케네디스쿨)"
+            placeholder="예: 제목입니다"
           />
         </div>
 
@@ -53,7 +53,7 @@ export default function InstructorDetail() {
             프로필 <span className="required">*</span>
           </label>
           <RichEditor
-            placeholder="강사의 경력, 전공 분야, 주요 업적 등을 입력하세요"
+            placeholder="내용을 입력하세요"
           />
         </div>
 
